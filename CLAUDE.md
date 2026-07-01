@@ -1,44 +1,24 @@
-# CLAUDE.md
+# CLAUDE
 
-## ระบบจัดการปัญหาน้ำประปาไม่สะอาด
+## Project Overview
+This project is an API-only backend for managing water issue reports using Next.js API Routes and SQLite.
 
-เอกสารนี้สรุปขอบเขตและฟีเจอร์ของ backend สำหรับการจัดการปัญหาน้ำประปาไม่สะอาด เพื่อใช้เป็นข้อมูลอ้างอิงในการพัฒนาและทดสอบกับระบบ AI หรือการวางแผนต่อไป.
+## Development Rules
+- Keep the project focused on backend API functionality.
+- Do not add frontend UI unless explicitly requested.
+- Use Next.js API routes under pages/api.
+- Store data in SQLite via lib/db.js.
+- Keep code simple and easy to test.
 
-## ข้อมูลหลัก
-- ระบบเป็น backend API สำหรับจัดการรายงานปัญหาน้ำประปาไม่สะอาด
-- ใช้ FastAPI เป็น framework
-- ใช้ SQLite เป็นฐานข้อมูลต้นแบบ
+## Commands
+- npm install
+- npm run dev
+- npm run build
 
-## ฟีเจอร์หลัก
-- สร้างรายงานปัญหาใหม่
-- ดึงรายงานทั้งหมด
-- ดึงรายงานตาม ID
-- แก้ไขรายงาน
-- ลบรายงาน
-
-## โครงสร้าง API
-- `GET /` - ตรวจสอบสถานะระบบ
-- `GET /issues` - ดึงข้อมูลรายงานทั้งหมด
-- `GET /issues/{issue_id}` - ดึงข้อมูลรายงานตาม ID
-- `POST /issues` - สร้างรายงานใหม่
-- `PUT /issues/{issue_id}` - อัปเดตรายงาน
-- `DELETE /issues/{issue_id}` - ลบรายงาน
-
-## โมเดลข้อมูล
-- `title`: ชื่อหรือหัวข้อปัญหา
-- `description`: คำอธิบายรายละเอียดปัญหา
-- `location`: ตำแหน่งที่พบปัญหา
-- `reported_by`: ชื่อผู้รายงาน
-- `status`: สถานะของปัญหา เช่น `reported`, `investigating`, `resolved`
-- `created_at`: เวลาเมื่อสร้าง
-- `updated_at`: เวลาเมื่อแก้ไขล่าสุด
-
-## การใช้งานกับ Claude หรือ AI
-- เอกสารนี้สามารถใช้เป็นคำอธิบายสำหรับการสรุป requirement
-- หากต้องการสร้าง frontend หรือระบบอัตโนมัติ สามารถอ้างอิง API และ model ได้จากเอกสารนี้
-
-## ข้อแนะนำการพัฒนาเพิ่มเติม
-- เพิ่มระบบยืนยันตัวตน (Authentication / Authorization)
-- ต่อระบบกับฐานข้อมูลที่ใช้ใน production เช่น PostgreSQL
-- เพิ่มโมดูลแจ้งเตือนเมื่อมีรายงานใหม่
-- เพิ่มระบบจัดการสถานะปัญหาและประวัติการแก้ไข
+## Notes
+- Main API endpoints:
+  - GET /api/issues
+  - GET /api/issues/[id]
+  - POST /api/issues
+  - PUT /api/issues/[id]
+  - DELETE /api/issues/[id]
